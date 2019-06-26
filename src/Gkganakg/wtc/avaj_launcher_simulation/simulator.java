@@ -47,11 +47,11 @@ public class simulator {
         try {
             number = Integer.parseInt(line);
             if (number < 0){
-                throw new  InvalidNumberException("Invalid number of simulations provided ..Number should be a Positive number");
+                throw new  InvalidNumberException("Invalid number of : "+name + " should be a Positive number");
             }
         }
         catch(NumberFormatException e){
-            throw  new InvalidNumberException("Invalid type provided : Should provide a Integer number ");
+            throw  new InvalidNumberException("Invalid type provided : "+name + " Should provide a Integer number ");
 
         }
 
