@@ -3,15 +3,16 @@ import java.io.BufferedReader;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class simulator {
-    private static WeatherTower weatherTower;
-    private static List<Flyable> flyable = new ArrayList<>();
-    AircraftFactory aircraftFactory = new AircraftFactory();
 
-    public  void main(String[] args) throws Exception {
+public class Simulator {
+
+
+
+    public  static  void main(String[] args) throws Exception {
+        WeatherTower weatherTower = new WeatherTower();
+
+        AircraftFactory aircraftFactory = new AircraftFactory();
         try {
             File file = new File(args[0]);
             FileReader fileReader = new FileReader(file);
@@ -28,7 +29,7 @@ public class simulator {
                 flyable = aircraftFactory.newAircraft(splitLine[0],splitLine[1],checkNumber(splitLine[2],"longitude"),checkNumber(splitLine[3],"latitide"),checkNumber(splitLine[4],"Height"));
                 flyable.registerTower(weatherTower);
             }
-            for (int i = 0; i <= simulations; i++){
+            for (int i = 0; i < simulations; i++){
                 weatherTower.changeWeather();
             }
 
@@ -47,11 +48,11 @@ public class simulator {
         try {
             number = Integer.parseInt(line);
             if (number < 0){
-                throw new  InvalidNumberException("Invalid number of : "+name + " should be a Positive number");
+                throw new  InvalidNumberException(name + " : should be a Positive number");
             }
         }
         catch(NumberFormatException e){
-            throw  new InvalidNumberException("Invalid type provided : "+name + " Should provide a Integer number ");
+            throw  new InvalidNumberException(name + " : Should provide a Integer number ");
 
         }
 
