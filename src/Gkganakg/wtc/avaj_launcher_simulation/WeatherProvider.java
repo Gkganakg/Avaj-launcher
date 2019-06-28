@@ -20,11 +20,6 @@ public class WeatherProvider {
 
         Random indexer = new Random();
         int index = indexer.nextInt(4);
-        if (coordinates.getHeight() < 15 && index == 2){
-            index--;
-        } else if (coordinates.getHeight() > 96 && index == 0){
-            index++;
-        }
         return this.weather[index];
     }
 

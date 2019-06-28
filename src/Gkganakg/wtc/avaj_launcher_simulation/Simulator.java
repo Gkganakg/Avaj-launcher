@@ -12,7 +12,7 @@ public class Simulator {
     public  static  void main(String[] args) throws Exception {
         WeatherTower weatherTower = new WeatherTower();
 
-        AircraftFactory aircraftFactory = new AircraftFactory();
+
         try {
             File file = new File(args[0]);
             FileReader fileReader = new FileReader(file);
@@ -26,16 +26,18 @@ public class Simulator {
 
             while((line = buffer.readLine()) != null){
                 splitLine = line.split(" ");
-                flyable = aircraftFactory.newAircraft(splitLine[0],splitLine[1],checkNumber(splitLine[2],"longitude"),checkNumber(splitLine[3],"latitide"),checkNumber(splitLine[4],"Height"));
+                flyable = AircraftFactory.newAircraft(splitLine[0],splitLine[1],checkNumber(splitLine[2],"longitude"),checkNumber(splitLine[3],"latitide"),checkNumber(splitLine[4],"Height"));
                 flyable.registerTower(weatherTower);
+
             }
             for (int i = 0; i < simulations; i++){
                 weatherTower.changeWeather();
             }
+    buffer.close();
 
-
-        } catch (InvalidNumberException e) {
-            System.out.println(e.getMessage());
+        } catch (InvalidNumberException | IOException | ArrayIndexOutOfBoundsException e) {
+            //e.getMessage();
+            e.printStackTrace();
 
         }
 
@@ -52,7 +54,7 @@ public class Simulator {
             }
         }
         catch(NumberFormatException e){
-            throw  new InvalidNumberException(name + " : Should provide a Integer number ");
+            throw  new InvalidNumberException(name + " : Should provide an Integer number ");
 
         }
 
