@@ -1,10 +1,12 @@
 package Gkganakg.wtc.avaj_launcher_simulation;
 
 
- abstract class   Aircraft {
+import Gkganakg.wtc.avaj_launcher_simulation.Coordinates;
+
+abstract class   Aircraft {
     protected long id;
     protected String name;
-    protected  Coordinates coordinates;
+    protected Coordinates coordinates;
     private static long idCounter;
 
     protected Aircraft(String name, Coordinates coordinates){

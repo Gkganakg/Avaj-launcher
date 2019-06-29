@@ -12,7 +12,7 @@ public abstract  class Tower {
     }
     public void unregistered(Flyable flyable){
         observers.remove(flyable);
-        System.out.println("Deleted Flyable " + flyable);
+
 
     }
     protected void conditionsChanged(){

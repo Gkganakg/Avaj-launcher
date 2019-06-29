@@ -17,22 +17,29 @@ public class JetPlane extends Aircraft implements Flyable {
 
         switch (type) {
             case "SUN":
-               // System.out.println("JetPlane Sun coordintaes befor : "+  coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
+                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Fuck this sun in reflecting on my windshield"));
+
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 10, coordinates.getHeight() + 2);
-             //   System.out.println(" JetPlane Sun coordintaes after: "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
                 break;
             case "RAIN":
+                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Its raining  hope they did plough crops at home if not hunger will kill us"));
+
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 5, coordinates.getHeight());
+
+
                 break;
             case "FOG":
-                coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getHeight() + 1, coordinates.getHeight());
+
+                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"We should be careful or we will end up colliding with other planes"));
+
+                coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
+
                 break;
             case "SNOW":
-             //   System.out.println(" JetPlane Snow coordintaes befor : "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
+                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Remmber last time it snowed charlie brown iii was trying to fly a kite"));
 
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
 
-              //  System.out.println(" JetPlane Snow coordintaes after: "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
 
                 break;
             default:
@@ -41,11 +48,14 @@ public class JetPlane extends Aircraft implements Flyable {
         }
         if (coordinates.getHeight() <= 0) {
             weatherTower.unregistered(this);
+            MessageLog.pushMessage(MessageLog.JetPlaneTower(this,"deRegistered FROM the tower"));
+
         }
     }
 
 
     public void registerTower(WeatherTower weatherTower){
+        MessageLog.pushMessage(MessageLog.JetPlaneTower(this,"Registered to the tower"));
 
         weatherTower.register(this);
         this.weatherTower = weatherTower;

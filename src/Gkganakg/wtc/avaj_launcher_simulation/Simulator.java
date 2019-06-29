@@ -30,8 +30,9 @@ public class Simulator {
                 flyable.registerTower(weatherTower);
 
             }
-            for (int i = 0; i < simulations; i++){
+            for (int i = 0; i <= simulations; i++){
                 weatherTower.changeWeather();
+                MessageLog.DisplayMessages();
             }
     buffer.close();
 

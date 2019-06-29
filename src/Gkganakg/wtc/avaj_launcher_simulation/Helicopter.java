@@ -18,22 +18,29 @@ public class Helicopter extends Aircraft implements Flyable {
 
         switch (type) {
             case "SUN":
-                System.out.println("Sun coordintaes befor : "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
+                MessageLog.pushMessage(MessageLog.getHelicopterMessage(this,"This shit so hot"));
                 coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
-               System.out.println("Sun coordintaes after: "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
                 break;
             case "RAIN":
+                MessageLog.pushMessage(MessageLog.getHelicopterMessage(this,"oOH here we go again It fucking raining"));
 
                 coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
+
+
                 break;
             case "FOG":
+
+                MessageLog.pushMessage(MessageLog.getHelicopterMessage(this,"Requesting to DROP down 1000 meters i cant see shit"));
+
                 coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude(), coordinates.getHeight());
+
+
                 break;
             case "SNOW":
-                System.out.println("Snow coordintaes befor : "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
+                MessageLog.pushMessage(MessageLog.getHelicopterMessage(this,"Damn its fucking cold in this sghit and the windscreen is fiiled with coldi cannot see shit"));
+
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 12);
 
-                System.out.println("Snow coordintaes after: "+ coordinates.getLongitude() + " "+ coordinates.getLatitude() + " "+ coordinates.getHeight());;
 
                 break;
             default:
@@ -47,8 +54,10 @@ public class Helicopter extends Aircraft implements Flyable {
 
     public void registerTower(WeatherTower weatherTower) {
 
+        MessageLog.pushMessage(MessageLog.HelicopterTower(this,"Registered to the tower"));
         weatherTower.register(this);
         this.weatherTower = weatherTower;
+
 
 
 
