@@ -1,7 +1,7 @@
-package Gkganakg.wtc.avaj_launcher_simulation;
+package Gkganakg.wtc.avaj_launcher_simulation.Aircraft;
 
 public abstract class AircraftFactory {
-    public static  Flyable newAircraft(String type, String name, int longitude, int latitude, int height){
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height){
         Flyable aircraft;
 
         if(latitude < 0 || longitude < 0){

@@ -1,4 +1,4 @@
-package Gkganakg.wtc.avaj_launcher_simulation;
+package Gkganakg.wtc.avaj_launcher_simulation.Aircraft;
 
 
 public class Coordinates {

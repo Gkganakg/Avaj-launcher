@@ -1,4 +1,6 @@
-package Gkganakg.wtc.avaj_launcher_simulation;
+package Gkganakg.wtc.avaj_launcher_simulation.weather;
+
+import Gkganakg.wtc.avaj_launcher_simulation.Aircraft.Coordinates;
 
 import java.lang.String;
 
