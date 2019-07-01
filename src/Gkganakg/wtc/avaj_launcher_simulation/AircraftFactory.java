@@ -10,17 +10,17 @@ public abstract class AircraftFactory {
         switch (type){
             case "Baloon":
                 aircraft = new Baloon(name,new Coordinates(longitude,latitude,height));
-                break;
+                return aircraft;
 
             case "JetPlane":
                 aircraft = new JetPlane(name,new Coordinates(longitude,latitude,height));
-                break;
+                return aircraft;
             case "Helicopter":
                 aircraft = new Helicopter(name,new Coordinates(longitude,latitude,height));
-                break;
+                return aircraft;
             default:
-                throw new IllegalArgumentException("Type of Aircraft does not Exist!!");
+                return null;
         }
-        return aircraft;
+
     }
 }

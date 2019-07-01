@@ -17,12 +17,12 @@ public class JetPlane extends Aircraft implements Flyable {
 
         switch (type) {
             case "SUN":
-                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Fuck this sun in reflecting on my windshield"));
+                MessageLog.pushMessage((this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id + "): This shit so hot Take it to the head "));
 
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 10, coordinates.getHeight() + 2);
                 break;
             case "RAIN":
-                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Its raining  hope they did plough crops at home if not hunger will kill us"));
+                MessageLog.pushMessage((this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id + "): This shit so hot Take it to the head "));
 
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 5, coordinates.getHeight());
 
@@ -30,13 +30,13 @@ public class JetPlane extends Aircraft implements Flyable {
                 break;
             case "FOG":
 
-                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"We should be careful or we will end up colliding with other planes"));
+                MessageLog.pushMessage((this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id + "): This shit so hot Take it to the head "));
 
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
 
                 break;
             case "SNOW":
-                MessageLog.pushMessage(MessageLog.getJetPlaneMessage(this,"Remmber last time it snowed charlie brown iii was trying to fly a kite"));
+                MessageLog.pushMessage((this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id + "): This shit so hot Take it to the head "));
 
                 coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
 
@@ -48,14 +48,14 @@ public class JetPlane extends Aircraft implements Flyable {
         }
         if (coordinates.getHeight() <= 0) {
             weatherTower.unregistered(this);
-            MessageLog.pushMessage(MessageLog.JetPlaneTower(this,"deRegistered FROM the tower"));
+            MessageLog.pushMessage(("Tower Says:"+ this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id +")" + " Unregistered from  weather tower"));
 
         }
     }
 
 
     public void registerTower(WeatherTower weatherTower){
-        MessageLog.pushMessage(MessageLog.JetPlaneTower(this,"Registered to the tower"));
+        MessageLog.pushMessage(("Tower Says: "+ this.getClass().getTypeName().substring(38) +"#" + this.name + "(" + this.id +")" + " Registered to weather tower"));
 
         weatherTower.register(this);
         this.weatherTower = weatherTower;

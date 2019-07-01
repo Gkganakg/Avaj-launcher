@@ -1,8 +1,5 @@
 package Gkganakg.wtc.avaj_launcher_simulation;
 
-
-import Gkganakg.wtc.avaj_launcher_simulation.Coordinates;
-
 abstract class   Aircraft {
     protected long id;
     protected String name;
